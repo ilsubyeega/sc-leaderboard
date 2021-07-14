@@ -19,6 +19,7 @@
 		Score: 0,
 		UserId: 0,
 		Username: 0,
+		Grade: 10
 	};
 	const regex = /\B(?=(\d{3})+(?!\d))/g;
 	function scorestr(num) {
@@ -57,16 +58,16 @@
 	let movable;
 
 	const osuGrade = {
-		0: "SSH",
-		1: "SH",
-		2: "SS",
-		3: "S",
-		4: "A",
-		5: "B",
-		6: "C",
-		7: "D",
-		8: "F",
-		9: "",
+		1: "XH",
+		2: "SH",
+		3: "X",
+		4: "S",
+		5: "A",
+		6: "B",
+		7: "C",
+		8: "D",
+		9: "F",
+		10: "?",
 	};
 
 
@@ -95,7 +96,7 @@
 			</div>
 		</div>
 		<div class="part">
-			<div class="rank">SS</div>
+			<div class="rank">{osuGrade[parseInt(value.Grade+1) || 8]}</div>
 			<div class="section">
 				<div class="combos">{value.MaxCombo || 0}x</div>
 				<div class="mods">{modstr(value.Mods.Value)}</div>
@@ -104,7 +105,7 @@
 				<div class="score">
 					{scorestr(value.Score || 0)}
 				</div>
-				<div class="accuracy">100%</div>
+				<div class="accuracy">{(value.Accuracy || 0).toFixed(2)}%</div>
 			</div>
 		</div>
 	</div>

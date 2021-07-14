@@ -77,7 +77,7 @@
 </script>
 
 <main>
-	<div class="leaderboard-outside">
+	<div class="leaderboard-outside" style="opacity: {isPlaying(tokens.status) ? "1" : "0"}; transition all 0.5s;">
 		<div class="leaderboard" style="top: -{playerIndex > 5 ? (isPlaying(tokens.status) ? (playerIndex-5)*80+10 : (playerIndex-6)*80+10 ) : 10}px">
 			{#each scores as item, idx}
 				<LeaderboardItem
